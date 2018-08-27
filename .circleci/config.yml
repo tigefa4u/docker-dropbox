@@ -10,7 +10,7 @@ jobs:
       - run:
           name: Requirements
           command: |
-            apt-get update -yqq && apt-get install -yqq sudo lsb-base lsb-release apt-transport-https ca-certificates software-properties-common dirmngr gnupg gnupg2 wget curl netcat aria2 whois figlet git-all p7zip p7zip-full zip unzip
+            apt-get update -yqq && apt-get install -yqq sudo lsb-base lsb-release apt-transport-https ca-certificates software-properties-common dirmngr gnupg gnupg2 wget curl netcat aria2 whois figlet git p7zip p7zip-full zip unzip
             curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
             apt-get install -yqq nodejs python-pip python3-pip
 
