@@ -3,13 +3,13 @@ MAINTAINER Sugeng Tigefa <tigefa@gmail.com>
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update -yqq && apt-get dist-upgrade -yqq \
-  && apt-get -qqy install lsb-base lsb-release apt-utils apt-transport-https ca-certificates software-properties-common wget curl dirmngr gnupg gnupg2
+  && apt-get -qqy install sudo apt-transport-https ca-certificates wget curl gnupg
 # Following 'How do I add or remove Dropbox from my Linux repository?' - https://www.dropbox.com/en/help/246
 RUN echo 'deb http://linux.dropbox.com/debian jessie main' > /etc/apt/sources.list.d/dropbox.list \
 	&& apt-key adv --keyserver pgp.mit.edu --recv-keys 1C61A2656FB57B7E4DE0F4C1FC918B335044912E \
 	&& apt-get -qqy update \
 	# Note 'ca-certificates' dependency is required for 'dropbox start -i' to succeed
-	&& apt-get -qqy install ca-certificates wget curl dirmngr gnupg gnupg2 dropbox \
+	&& apt-get -qqy install ca-certificates wget curl gnupg dropbox \
 	# Perform image clean up.
 	&& apt-get -qqy autoclean \
 	&& rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
