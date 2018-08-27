@@ -43,6 +43,9 @@ RUN mkdir -p /opt/dropbox \
 	# Prepare for command line wrapper
 	&& mv /usr/bin/dropbox /usr/bin/dropbox-cli
 
+# Clean up APT when done.
+RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
 # Install init script and dropbox command line wrapper
 COPY run /root/
 COPY dropbox /usr/bin/dropbox
