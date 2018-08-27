@@ -22,10 +22,6 @@ jobs:
             wget -qO- https://get.docker.com/ | sh
 
       - run:
-          name: Build service
-          command: make
-
-      - run:
           name: Build and push Docker image
           command: |
             docker build -t tigefa/dropbox .
